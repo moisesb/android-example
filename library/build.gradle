@@ -10,7 +10,7 @@ repositories {
 }
 
 group = 'com.github.moisesb'
-version = '1.0'
+version = '2.0.3'
 
 android {
     compileSdkVersion 28
@@ -37,6 +37,8 @@ android {
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
         androidTest.resources.srcDirs += 'src/androidTest/res'
     }
@@ -77,3 +79,16 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
+//android.libraryVariants.all { variant ->
+//    def bundleTask = tasks["bundle${variant.name.capitalize()}"]
+//
+//    artifacts {
+//        archives(bundleTask.archivePath) {
+//            classifier variant.flavorName
+//            builtBy bundleTask
+//            name = project.name
+//        }
+//    }
+//
+//}
